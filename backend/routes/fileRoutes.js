@@ -5,11 +5,11 @@ import {
   DeleteController,
   VerifyPasswordController,
 } from "../controllers/uploadController.js";
-import storage from "../middleware/upload.js";
+import upload from "../middleware/upload.js";
 
 const router = express.Router();
 
-router.post("/upload", storage.single("file"), UploadController);
+router.post("/upload", upload.single("file"), UploadController);
 router.get("/files/:fileId", DownloadController);
 router.post("/files/:fileId/verify", VerifyPasswordController);
 router.delete("/files/:fileId", DeleteController);
