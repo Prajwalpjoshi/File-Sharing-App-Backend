@@ -25,6 +25,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/user", userRoutes);
 app.use("/", fileRoutes);
 
+// ✅ Test Route
+app.get("/api/test", (req, res) => {
+  res.json({ message: "✅ Backend is working fine!" });
+});
+
 // ✅ Error Handling
 app.use(notFound);
 app.use(errorHandler);
